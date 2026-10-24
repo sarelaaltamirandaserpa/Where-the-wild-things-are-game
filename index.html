@@ -1,183 +1,753 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Where the Wild Things Are - Activities</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where the Wild Things Are - Primary English Activities</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts for Child-Friendly & Playful Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FAF4E8',
+                        paper: '#F2E6CE',
+                        wildDark: '#2C3531',
+                        wildGreen: '#3E6B27',
+                        wildGold: '#D97706',
+                        wildTerracotta: '#C2410C',
+                        wildBlue: '#1E3A8A'
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        comfortaa: ['Comfortaa', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAF4E8;
+            color: #2C3531;
+            font-family: 'Fredoka', sans-serif;
+            background-image: radial-gradient(#E8DAC0 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, .nav-title {
+            font-family: 'Comfortaa', cursive;
+        }
+
+        /* Storybook Card Styles */
+        .story-card {
+            background: #FFFFFF;
+            border: 4px solid #2C3531;
+            box-shadow: 8px 8px 0px #2C3531;
+            border-radius: 1.5rem;
+        }
+
+        .btn-story {
+            background: #D97706;
+            color: white;
+            border: 3px solid #2C3531;
+            box-shadow: 4px 4px 0px #2C3531;
+            font-weight: 700;
+            transition: all 0.15s ease-in-out;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        .btn-story:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #2C3531;
+            background: #B45309;
+        }
+
+        .btn-story:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #2C3531;
+        }
+
+        .custom-radio:checked + label {
+            background-color: #FEF3C7;
+            border-color: #D97706;
+            font-weight: 700;
+            box-shadow: 3px 3px 0px #2C3531;
+        }
+
+        /* Roar Shake Animation */
+        @keyframes roar-shake {
+            0% { transform: scale(1) rotate(0deg); }
+            20% { transform: scale(1.1) rotate(-8deg) translateX(-4px); }
+            40% { transform: scale(1.1) rotate(8deg) translateX(4px); }
+            60% { transform: scale(1.1) rotate(-6deg) translateX(-3px); }
+            80% { transform: scale(1.05) rotate(4deg) translateX(2px); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .roaring-monster {
+            animation: roar-shake 0.8s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF4E8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D97706;
+            border-radius: 6px;
+            border: 2px solid #2C3531;
+        }
+    </style>
 </head>
-<body bgcolor="#fdf6e3" text="#3b2f2f">
+<body class="min-h-screen pb-16">
 
-  <!-- ================= HEADER ================= -->
-  <center>
-    <h1>🌿 Where the Wild Things Are 🌿</h1>
-    <p><i>Fun activities for kids</i></p>
-    <hr width="70%">
-  </center>
+    <!-- TOP NAVIGATION & HEADER -->
+    <header class="bg-paper border-b-4 border-wildDark py-6 px-4 mb-8 text-center sticky top-0 z-50 shadow-md">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl sm:text-5xl font-bold text-wildDark tracking-wide mb-2">
+                👑 Where the Wild Things Are 🌿
+            </h1>
+            <p class="text-base sm:text-xl text-wildTerracotta font-bold">
+                Fun English Activities for Primary Students
+            </p>
+            
+            <!-- Navigation -->
+            <nav class="mt-4 flex flex-wrap justify-center gap-3 text-sm sm:text-base">
+                <a href="#section1" class="px-4 py-2 bg-white rounded-full border-2 border-wildDark font-bold hover:bg-amber-100 transition shadow-sm">
+                    🎨 1. Build a Wild Thing
+                </a>
+                <a href="#section2" class="px-4 py-2 bg-white rounded-full border-2 border-wildDark font-bold hover:bg-amber-100 transition shadow-sm">
+                    😊 2. Match the Feelings
+                </a>
+                <a href="#section3" class="px-4 py-2 bg-white rounded-full border-2 border-wildDark font-bold hover:bg-amber-100 transition shadow-sm">
+                    🍪 3. Feed the Wild Things
+                </a>
+            </nav>
+        </div>
+    </header>
 
-  <!-- ================= MENU ================= -->
-  <center>
-    <p>
-      <b>Go to:</b>
-      <a href="#section1">1️⃣ Build a Wild Thing</a> &nbsp;|&nbsp;
-      <a href="#section2">2️⃣ Match the Feelings</a> &nbsp;|&nbsp;
-      <a href="#section3">3️⃣ Feed the Wild Things</a>
-    </p>
-  </center>
+    <main class="max-w-4xl mx-auto px-4 space-y-12">
 
-  <hr width="70%">
+        <!-- ================= SECTION 1: BUILD A WILD THING ================= -->
+        <section id="section1" class="story-card p-6 sm:p-8">
+            <div class="text-center mb-6">
+                <span class="inline-block px-4 py-1 bg-amber-100 border-2 border-amber-500 rounded-full text-xs font-bold uppercase tracking-wider text-amber-900 mb-2">
+                    Activity 1
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-wildDark">🎨 Build a Wild Thing</h2>
+                <p class="text-gray-700 text-base sm:text-lg mt-1">Choose options and customize your monster!</p>
+            </div>
 
-  <!-- ================= SECTION 1 ================= -->
-  <a name="section1"></a>
-  <center>
-    <h2>1️⃣ Build a Wild Thing</h2>
-    <p><i>Create your own monster!</i></p>
-  </center>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                
+                <!-- SVG Canvas Display -->
+                <div class="bg-amber-50 rounded-2xl border-4 border-dashed border-wildDark p-6 flex flex-col items-center justify-center relative min-h-[340px]">
+                    
+                    <div id="monsterContainer" class="w-52 h-64 relative flex items-center justify-center transition-transform">
+                        <svg id="monsterSVG" viewBox="0 0 200 240" class="w-full h-full drop-shadow-lg">
+                            
+                            <!-- Body & Fur -->
+                            <rect id="svgBody" x="40" y="70" width="120" height="130" rx="35" fill="#3E6B27" stroke="#2C3531" stroke-width="5" />
+                            <!-- Belly Accent -->
+                            <path d="M 65 110 Q 100 90 135 110 A 40 40 0 0 1 65 110" fill="#FEF3C7" stroke="#2C3531" stroke-width="4" />
+                            
+                            <!-- Horns / Crown Layer -->
+                            <g id="svgHorns">
+                                <path d="M 45 75 Q 20 25 10 20 Q 30 45 55 68 Z" fill="#F59E0B" stroke="#2C3531" stroke-width="4"/>
+                                <path d="M 155 75 Q 180 25 190 20 Q 170 45 145 68 Z" fill="#F59E0B" stroke="#2C3531" stroke-width="4"/>
+                            </g>
 
-  <fieldset>
-    <legend><b>👀 Choose your eyes</b></legend>
-    <label><input type="radio" name="eyes"> 👁️ Big eyes</label><br>
-    <label><input type="radio" name="eyes"> 😾 Sleepy eyes</label><br>
-    <label><input type="radio" name="eyes"> 🤩 Star eyes</label>
-  </fieldset>
+                            <!-- Eyes Layer -->
+                            <g id="svgEyes">
+                                <circle cx="70" cy="100" r="18" fill="#FACC15" stroke="#2C3531" stroke-width="4"/>
+                                <circle cx="70" cy="100" r="7" fill="#2C3531"/>
+                                <circle cx="130" cy="100" r="18" fill="#FACC15" stroke="#2C3531" stroke-width="4"/>
+                                <circle cx="130" cy="100" r="7" fill="#2C3531"/>
+                            </g>
 
-  <fieldset>
-    <legend><b>👹 Choose your horns</b></legend>
-    <label><input type="radio" name="horns"> 🦌 Long horns</label><br>
-    <label><input type="radio" name="horns"> 🐏 Curly horns</label><br>
-    <label><input type="radio" name="horns"> 👑 No horns, a crown</label>
-  </fieldset>
+                            <!-- Mouth / Fangs Layer -->
+                            <g id="svgMouth">
+                                <path d="M 70 145 Q 100 175 130 145 Z" fill="#78350F" stroke="#2C3531" stroke-width="4"/>
+                                <polygon points="80,145 87,158 94,145" fill="#FFFFFF" stroke="#2C3531" stroke-width="2"/>
+                                <polygon points="106,145 113,158 120,145" fill="#FFFFFF" stroke="#2C3531" stroke-width="2"/>
+                            </g>
 
-  <fieldset>
-    <legend><b>🎨 Pick a color</b></legend>
-    <label><input type="radio" name="color"> 🟢 Green</label><br>
-    <label><input type="radio" name="color"> 🟣 Purple</label><br>
-    <label><input type="radio" name="color"> 🟡 Yellow</label>
-  </fieldset>
+                            <!-- Feet -->
+                            <ellipse cx="65" cy="205" rx="20" ry="12" fill="#2C3531"/>
+                            <ellipse cx="135" cy="205" rx="20" ry="12" fill="#2C3531"/>
+                        </svg>
+                    </div>
 
-  <fieldset>
-    <legend><b>✏️ My monster is called...</b></legend>
-    <input type="text" placeholder="Write a name" size="30">
-  </fieldset>
+                    <!-- Display Name -->
+                    <h3 id="displayName" class="text-2xl font-bold text-wildDark mt-4 tracking-wide text-center">
+                        My Wild Thing
+                    </h3>
+                </div>
 
-  <center>
-    <p>🖍️ <b>Preview:</b> 👹 🌿 👑</p>
-    <progress value="70" max="100"></progress>
-    <p><small>Almost ready!</small></p>
-    <button>✅ Finish my monster</button>
-  </center>
+                <!-- Customization Controls -->
+                <form id="builderForm" onsubmit="event.preventDefault(); finishMonster();" class="space-y-4">
+                    
+                    <!-- 1. Choose Eyes -->
+                    <fieldset class="p-3 border-2 border-wildDark rounded-2xl bg-paper">
+                        <legend class="px-3 py-0.5 text-sm font-bold text-wildDark bg-white border-2 border-wildDark rounded-lg">1. Choose Eyes 👀</legend>
+                        <div class="grid grid-cols-3 gap-2 mt-2">
+                            <div>
+                                <input type="radio" id="eyeBig" name="eyes" value="big" class="hidden custom-radio" checked onchange="updateMonster()">
+                                <label for="eyeBig" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Big Eyes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="eyeSleepy" name="eyes" value="sleepy" class="hidden custom-radio" onchange="updateMonster()">
+                                <label for="eyeSleepy" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Sleepy Eyes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="eyeStar" name="eyes" value="star" class="hidden custom-radio" onchange="updateMonster()">
+                                <label for="eyeStar" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Star Eyes</label>
+                            </div>
+                        </div>
+                    </fieldset>
 
-  <hr width="70%">
+                    <!-- 2. Choose Horns / Crown -->
+                    <fieldset class="p-3 border-2 border-wildDark rounded-2xl bg-paper">
+                        <legend class="px-3 py-0.5 text-sm font-bold text-wildDark bg-white border-2 border-wildDark rounded-lg">2. Choose Head 👑</legend>
+                        <div class="grid grid-cols-3 gap-2 mt-2">
+                            <div>
+                                <input type="radio" id="hornLong" name="horns" value="long" class="hidden custom-radio" checked onchange="updateMonster()">
+                                <label for="hornLong" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Long Horns</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="hornCurly" name="horns" value="curly" class="hidden custom-radio" onchange="updateMonster()">
+                                <label for="hornCurly" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Curly Horns</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="hornCrown" name="horns" value="crown" class="hidden custom-radio" onchange="updateMonster()">
+                                <label for="hornCrown" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Gold Crown</label>
+                            </div>
+                        </div>
+                    </fieldset>
 
-  <!-- ================= SECTION 2 ================= -->
-  <a name="section2"></a>
-  <center>
-    <h2>2️⃣ Match the Feelings</h2>
-    <p><i>How do the wild things feel?</i></p>
-  </center>
+                    <!-- 3. Choose Color -->
+                    <fieldset class="p-3 border-2 border-wildDark rounded-2xl bg-paper">
+                        <legend class="px-3 py-0.5 text-sm font-bold text-wildDark bg-white border-2 border-wildDark rounded-lg">3. Choose Color 🎨</legend>
+                        <div class="grid grid-cols-3 gap-2 mt-2">
+                            <div>
+                                <input type="radio" id="colorGreen" name="color" value="green" class="hidden custom-radio" checked onchange="updateMonster()">
+                                <label for="colorGreen" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Green</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="colorPurple" name="color" value="purple" class="hidden custom-radio" onchange="updateMonster()">
+                                <label for="colorPurple" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Purple</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="colorYellow" name="color" value="yellow" class="hidden custom-radio" onchange="updateMonster()">
+                                <label for="colorYellow" class="block text-center p-2.5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer text-sm hover:border-wildDark transition">Yellow</label>
+                            </div>
+                        </div>
+                    </fieldset>
 
-  <blockquote>
-    <p>👹 <b>Happy</b> — 😄</p>
-    <p>👹 <b>Sad</b> — 😢</p>
-    <p>👹 <b>Angry</b> — 😠</p>
-    <p>👹 <b>Scared</b> — 😨</p>
-    <p>👹 <b>Sleepy</b> — 😴</p>
-  </blockquote>
+                    <!-- 4. Monster Name -->
+                    <div>
+                        <label for="monsterNameInput" class="block text-sm font-bold text-wildDark mb-1">4. Name Your Monster:</label>
+                        <input type="text" id="monsterNameInput" placeholder="e.g. King Max" oninput="updateMonsterName()" class="w-full px-4 py-2.5 border-2 border-wildDark rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
 
-  <fieldset>
-    <legend><b>🎯 Choose the correct face</b></legend>
+                    <!-- Button -->
+                    <div class="pt-2 text-center">
+                        <button type="button" onclick="finishMonster()" class="w-full py-3 px-6 btn-story text-lg rounded-2xl flex items-center justify-center gap-2">
+                            🔊 Roar & Finish Monster!
+                        </button>
+                    </div>
+                </form>
 
-    <p>1. The monster is <b>happy</b>.
-      <select>
-        <option>-- choose --</option>
-        <option>😄</option>
-        <option>😢</option>
-        <option>😠</option>
-      </select>
-    </p>
+            </div>
 
-    <p>2. The monster is <b>sad</b>.
-      <select>
-        <option>-- choose --</option>
-        <option>😄</option>
-        <option>😢</option>
-        <option>😠</option>
-      </select>
-    </p>
+            <!-- Back to top -->
+            <div class="text-right mt-6">
+                <a href="#" class="text-xs font-bold text-wildDark hover:underline">⬆️ Back to Top</a>
+            </div>
+        </section>
 
-    <p>3. The monster is <b>angry</b>.
-      <select>
-        <option>-- choose --</option>
-        <option>😄</option>
-        <option>😢</option>
-        <option>😠</option>
-      </select>
-    </p>
 
-  </fieldset>
+        <!-- ================= SECTION 2: MATCH THE FEELINGS ================= -->
+        <section id="section2" class="story-card p-6 sm:p-8">
+            <div class="text-center mb-6">
+                <span class="inline-block px-4 py-1 bg-amber-100 border-2 border-amber-500 rounded-full text-xs font-bold uppercase tracking-wider text-amber-900 mb-2">
+                    Activity 2
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-wildDark">😊 Match the Feelings</h2>
+                <p class="text-gray-700 text-base sm:text-lg mt-1">Select the correct emotion for each sentence!</p>
+            </div>
 
-  <center>
-    <p>⭐ <progress value="40" max="100"></progress> ⭐</p>
-    <button>🎉 Check my answers</button>
-  </center>
+            <!-- Vocabulary Box -->
+            <div class="bg-amber-50 border-2 border-wildDark rounded-2xl p-4 mb-6">
+                <h3 class="font-bold text-wildDark text-base border-b border-amber-300 pb-1 mb-2">Word Bank:</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm sm:text-base text-wildDark">
+                    <div class="bg-white p-2 rounded-xl border border-amber-200 shadow-sm text-center">😄 <strong>Happy</strong></div>
+                    <div class="bg-white p-2 rounded-xl border border-amber-200 shadow-sm text-center">😢 <strong>Sad</strong></div>
+                    <div class="bg-white p-2 rounded-xl border border-amber-200 shadow-sm text-center">😡 <strong>Angry</strong></div>
+                    <div class="bg-white p-2 rounded-xl border border-amber-200 shadow-sm text-center">😱 <strong>Scared</strong></div>
+                    <div class="bg-white p-2 rounded-xl border border-amber-200 shadow-sm text-center">😴 <strong>Sleepy</strong></div>
+                    <div class="bg-white p-2 rounded-xl border border-amber-200 shadow-sm text-center">😋 <strong>Hungry</strong></div>
+                    <div class="bg-white p-2 rounded-xl border border-amber-200 shadow-sm text-center">👑 <strong>Proud</strong></div>
+                </div>
+            </div>
 
-  <center>
-    <details>
-      <summary>💡 Hint</summary>
-      <p>Look at the monster's mouth and eyes!</p>
-    </details>
-  </center>
+            <!-- Questions Form -->
+            <form id="feelingsForm" onsubmit="event.preventDefault(); checkFeelings();" class="space-y-6">
+                
+                <div class="p-4 bg-paper rounded-2xl border-2 border-wildDark space-y-4">
+                    
+                    <!-- Question 1 -->
+                    <div class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                        <p class="font-bold text-wildDark text-base sm:text-lg mb-2">1. Max wears his crown and grins: 😄</p>
+                        <select id="q1" class="w-full p-3 border-2 border-wildDark rounded-xl font-fredoka text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">-- Select Feeling --</option>
+                            <option value="happy">Happy</option>
+                            <option value="sad">Sad</option>
+                            <option value="angry">Angry</option>
+                        </select>
+                    </div>
 
-  <hr width="70%">
+                    <!-- Question 2 -->
+                    <div class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                        <p class="font-bold text-wildDark text-base sm:text-lg mb-2">2. The monsters roar their terrible roars: 😡</p>
+                        <select id="q2" class="w-full p-3 border-2 border-wildDark rounded-xl font-fredoka text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">-- Select Feeling --</option>
+                            <option value="happy">Happy</option>
+                            <option value="angry">Angry</option>
+                            <option value="scared">Scared</option>
+                        </select>
+                    </div>
 
-  <!-- ================= SECTION 3 ================= -->
-  <a name="section3"></a>
-  <center>
-    <h2>3️⃣ Feed the Wild Things</h2>
-    <p><i>Count the monsters and give them food!</i></p>
-  </center>
+                    <!-- Question 3 -->
+                    <div class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                        <p class="font-bold text-wildDark text-base sm:text-lg mb-2">3. Max closes his eyes in his private bed: 😴</p>
+                        <select id="q3" class="w-full p-3 border-2 border-wildDark rounded-xl font-fredoka text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">-- Select Feeling --</option>
+                            <option value="sleepy">Sleepy</option>
+                            <option value="sad">Sad</option>
+                            <option value="angry">Angry</option>
+                        </select>
+                    </div>
 
-  <center>
-    <p style="font-size:32px">👹 👹 👹</p>
-    <p><b>How many monsters?</b></p>
-  </center>
+                    <!-- Question 4 -->
+                    <div class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                        <p class="font-bold text-wildDark text-base sm:text-lg mb-2">4. Max is sent to bed without eating anything: 😢</p>
+                        <select id="q4" class="w-full p-3 border-2 border-wildDark rounded-xl font-fredoka text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">-- Select Feeling --</option>
+                            <option value="happy">Happy</option>
+                            <option value="sad">Sad</option>
+                            <option value="scared">Scared</option>
+                        </select>
+                    </div>
 
-  <fieldset>
-    <legend><b>🔢 Choose a number</b></legend>
-    <label><input type="radio" name="num"> 1</label>
-    <label><input type="radio" name="num"> 2</label>
-    <label><input type="radio" name="num"> 3</label>
-    <label><input type="radio" name="num"> 4</label>
-    <label><input type="radio" name="num"> 5</label>
-  </fieldset>
+                    <!-- Question 5 -->
+                    <div class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                        <p class="font-bold text-wildDark text-base sm:text-lg mb-2">5. A little monster sees huge yellow eyes in the dark forest: 😱</p>
+                        <select id="q5" class="w-full p-3 border-2 border-wildDark rounded-xl font-fredoka text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">-- Select Feeling --</option>
+                            <option value="scared">Scared</option>
+                            <option value="sleepy">Sleepy</option>
+                            <option value="proud">Proud</option>
+                        </select>
+                    </div>
 
-  <fieldset>
-    <legend><b>🍽️ What do they eat?</b></legend>
-    <label><input type="checkbox"> 🍎 Apple</label><br>
-    <label><input type="checkbox"> 🍪 Cookie</label><br>
-    <label><input type="checkbox"> 🥕 Carrot</label>
-  </fieldset>
+                    <!-- Question 6 -->
+                    <div class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                        <p class="font-bold text-wildDark text-base sm:text-lg mb-2">6. Max smells hot, delicious soup waiting for him: 😋</p>
+                        <select id="q6" class="w-full p-3 border-2 border-wildDark rounded-xl font-fredoka text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">-- Select Feeling --</option>
+                            <option value="angry">Angry</option>
+                            <option value="hungry">Hungry</option>
+                            <option value="scared">Scared</option>
+                        </select>
+                    </div>
 
-  <center>
-    <p>Hungry level: <meter value="0.6">60%</meter></p>
-    <button>🍴 Feed them!</button>
-    <p><small>⭐ Great job! ⭐</small></p>
-  </center>
+                    <!-- Question 7 -->
+                    <div class="bg-white p-4 rounded-xl border-2 border-gray-300 shadow-sm">
+                        <p class="font-bold text-wildDark text-base sm:text-lg mb-2">7. Max becomes the King of all Wild Things: 👑</p>
+                        <select id="q7" class="w-full p-3 border-2 border-wildDark rounded-xl font-fredoka text-base focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="">-- Select Feeling --</option>
+                            <option value="proud">Proud</option>
+                            <option value="sad">Sad</option>
+                            <option value="sleepy">Sleepy</option>
+                        </select>
+                    </div>
 
-  <center>
-    <marquee behavior="alternate" width="50%">🌿 Roar! Roar! Roar! 🌿</marquee>
-  </center>
+                </div>
 
-  <hr width="70%">
+                <!-- Hint -->
+                <details class="bg-amber-100 border-2 border-amber-400 p-3 rounded-xl cursor-pointer">
+                    <summary class="font-bold text-amber-900">💡 Need a hint? Click here!</summary>
+                    <p class="mt-2 text-sm sm:text-base text-amber-900 bg-white p-3 rounded-lg border border-amber-300">
+                        Look closely at the emoji at the end of each sentence! It matches the right word.
+                    </p>
+                </details>
 
-  <!-- ================= FOOTER ================= -->
-  <center>
-    <p>
-      <a href="#section1">⬆ Back to Section 1</a> &nbsp;|&nbsp;
-      <a href="#section2">⬆ Back to Section 2</a> &nbsp;|&nbsp;
-      <a href="#section3">⬆ Back to Section 3</a>
-    </p>
-    <p><small>Made with ❤️ for young readers</small></p>
-  </center>
+                <!-- Feedback Display -->
+                <div id="feelingsFeedback" class="hidden text-center p-4 rounded-2xl border-2 font-bold text-lg"></div>
 
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="button" onclick="checkFeelings()" class="w-full sm:w-auto px-8 py-3 btn-story text-lg rounded-2xl">
+                        ⭐ Check Answers!
+                    </button>
+                </div>
+            </form>
+
+            <div class="text-right mt-6">
+                <a href="#" class="text-xs font-bold text-wildDark hover:underline">⬆️ Back to Top</a>
+            </div>
+        </section>
+
+
+        <!-- ================= SECTION 3: FEED THE WILD THINGS ================= -->
+        <section id="section3" class="story-card p-6 sm:p-8">
+            <div class="text-center mb-6">
+                <span class="inline-block px-4 py-1 bg-amber-100 border-2 border-amber-500 rounded-full text-xs font-bold uppercase tracking-wider text-amber-900 mb-2">
+                    Activity 3
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-bold text-wildDark">🍪 Feed the Wild Things</h2>
+                <p class="text-gray-700 text-base sm:text-lg mt-1">Count the monsters and give them snacks!</p>
+            </div>
+
+            <!-- Monster Group Container -->
+            <div class="bg-amber-100 border-4 border-wildDark rounded-2xl p-6 text-center mb-6">
+                <p class="text-base font-bold text-wildDark mb-2">Monsters in the forest:</p>
+                <div class="text-5xl sm:text-6xl tracking-widest py-2">
+                    👹 👹 👹
+                </div>
+            </div>
+
+            <form id="feedForm" onsubmit="event.preventDefault(); feedMonsters();" class="space-y-6">
+                
+                <!-- 1. Counting Question -->
+                <fieldset class="p-4 border-2 border-wildDark rounded-2xl bg-paper">
+                    <legend class="px-3 py-0.5 text-sm font-bold text-wildDark bg-white border-2 border-wildDark rounded-lg">1. How many monsters do you see above?</legend>
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 mt-3">
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="radio" name="count" value="1" class="w-4 h-4 accent-wildTerracotta"> 1
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="radio" name="count" value="2" class="w-4 h-4 accent-wildTerracotta"> 2
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="radio" name="count" value="3" class="w-4 h-4 accent-wildTerracotta"> 3
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="radio" name="count" value="4" class="w-4 h-4 accent-wildTerracotta"> 4
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="radio" name="count" value="5" class="w-4 h-4 accent-wildTerracotta"> 5
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- 2. Select Food -->
+                <fieldset class="p-4 border-2 border-wildDark rounded-2xl bg-paper">
+                    <legend class="px-3 py-0.5 text-sm font-bold text-wildDark bg-white border-2 border-wildDark rounded-lg">2. Select food snacks:</legend>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="checkbox" id="foodApple" name="food" value="apple" class="w-5 h-5 accent-wildGreen"> 🍎 Red Apple
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="checkbox" id="foodCookie" name="food" value="cookie" class="w-5 h-5 accent-wildGreen"> 🍪 Sweet Cookie
+                        </label>
+                        <label class="flex items-center gap-2 bg-white p-3 border-2 border-gray-300 rounded-xl cursor-pointer text-base">
+                            <input type="checkbox" id="foodCarrot" name="food" value="carrot" class="w-5 h-5 accent-wildGreen"> 🥕 Crunch Carrot
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Hunger Meter Gauge -->
+                <div class="bg-white p-4 border-2 border-wildDark rounded-2xl">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-wildDark text-base">Monster Hunger Level:</span>
+                        <span id="hungerText" class="text-sm font-bold text-wildTerracotta">Very Hungry!</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-5 border-2 border-wildDark overflow-hidden">
+                        <div id="hungerBar" class="bg-red-500 h-full w-[85%] transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Feed Feedback -->
+                <div id="feedFeedback" class="hidden text-center p-4 rounded-2xl border-2 font-bold text-lg"></div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="button" onclick="feedMonsters()" class="w-full sm:w-auto px-8 py-3 btn-story text-lg rounded-2xl">
+                        🍲 Feed the Wild Things!
+                    </button>
+                </div>
+            </form>
+
+            <!-- Marquee Banner -->
+            <div class="mt-8 bg-wildDark text-amber-300 rounded-2xl p-3 overflow-hidden border-2 border-black">
+                <div class="whitespace-nowrap animate-pulse text-center text-lg sm:text-xl font-bold tracking-wider">
+                    🐾 👹 ROAR! ROAR! ROAR! LET THE WILD RUMPUS START! 👑 🐾
+                </div>
+            </div>
+
+            <div class="text-right mt-6">
+                <a href="#" class="text-xs font-bold text-wildDark hover:underline">⬆️ Back to Top</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-12 text-center text-sm text-gray-700">
+        <p>Based on <i>Where the Wild Things Are</i> by Maurice Sendak • Primary English Learning</p>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // Web Audio Synthesizer for Realistic Sound Effects
+        function playSound(type) {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = new AudioCtx();
+
+                if (type === 'roar') {
+                    // Deep, Powerful, Multi-layered Monster Roar Synthesizer
+                    const now = ctx.currentTime;
+                    const duration = 1.8;
+
+                    // Master Gain Envelope
+                    const masterGain = ctx.createGain();
+                    masterGain.gain.setValueAtTime(0.01, now);
+                    masterGain.gain.linearRampToValueAtTime(0.8, now + 0.15); // Powerful attack
+                    masterGain.gain.exponentialRampToValueAtTime(0.01, now + duration);
+
+                    // Distortion / Drive effect for aggressive texture
+                    const distortion = ctx.createWaveShaper();
+                    function makeDistortionCurve(amount) {
+                        const k = typeof amount === 'number' ? amount : 50;
+                        const n_samples = 44100;
+                        const curve = new Float32Array(n_samples);
+                        const deg = Math.PI / 180;
+                        for (let i = 0; i < n_samples; ++i) {
+                            const x = (i * 2) / n_samples - 1;
+                            curve[i] = ((3 + k) * x * 20 * deg) / (Math.PI + k * Math.abs(x));
+                        }
+                        return curve;
+                    }
+                    distortion.curve = makeDistortionCurve(40);
+
+                    // Dynamic Resonant Filter for vocal growl modulation
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.Q.setValueAtTime(8, now);
+                    filter.frequency.setValueAtTime(200, now);
+                    filter.frequency.linearRampToValueAtTime(900, now + 0.3); // Growl opening
+                    filter.frequency.exponentialRampToValueAtTime(120, now + duration);
+
+                    // Oscillator 1: Deep Sawtooth
+                    const osc1 = ctx.createOscillator();
+                    osc1.type = 'sawtooth';
+                    osc1.frequency.setValueAtTime(110, now);
+                    osc1.frequency.linearRampToValueAtTime(160, now + 0.25);
+                    osc1.frequency.exponentialRampToValueAtTime(40, now + duration);
+
+                    // Oscillator 2: Sub-bass Square Wave
+                    const osc2 = ctx.createOscillator();
+                    osc2.type = 'square';
+                    osc2.frequency.setValueAtTime(65, now);
+                    osc2.frequency.linearRampToValueAtTime(90, now + 0.2);
+                    osc2.frequency.exponentialRampToValueAtTime(25, now + duration);
+
+                    // White Noise Buffer for vocal breath and gravel
+                    const bufferSize = ctx.sampleRate * duration;
+                    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                    const output = noiseBuffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) {
+                        output[i] = Math.random() * 2 - 1;
+                    }
+                    const noise = ctx.createBufferSource();
+                    noise.buffer = noiseBuffer;
+
+                    const noiseFilter = ctx.createBiquadFilter();
+                    noiseFilter.type = 'bandpass';
+                    noiseFilter.frequency.setValueAtTime(600, now);
+                    noiseFilter.frequency.exponentialRampToValueAtTime(200, now + duration);
+
+                    const noiseGain = ctx.createGain();
+                    noiseGain.gain.setValueAtTime(0.35, now);
+                    noiseGain.gain.exponentialRampToValueAtTime(0.01, now + duration);
+
+                    // Connect noise
+                    noise.connect(noiseFilter);
+                    noiseFilter.connect(noiseGain);
+                    noiseGain.connect(masterGain);
+
+                    // Connect oscillators
+                    osc1.connect(filter);
+                    osc2.connect(filter);
+                    filter.connect(distortion);
+                    distortion.connect(masterGain);
+
+                    // Output to speakers
+                    masterGain.connect(ctx.destination);
+
+                    // Start sound sources
+                    osc1.start(now);
+                    osc2.start(now);
+                    noise.start(now);
+
+                    osc1.stop(now + duration);
+                    osc2.stop(now + duration);
+                    noise.stop(now + duration);
+
+                } else if (type === 'success') {
+                    const now = ctx.currentTime;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+                    osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.5);
+                }
+            } catch (e) {
+                console.log("Audio play error:", e);
+            }
+        }
+
+        // Live Monster Update Logic
+        function updateMonster() {
+            const eyes = document.querySelector('input[name="eyes"]:checked')?.value || 'big';
+            const horns = document.querySelector('input[name="horns"]:checked')?.value || 'long';
+            const color = document.querySelector('input[name="color"]:checked')?.value || 'green';
+
+            // 1. Color update
+            const bodySvg = document.getElementById('svgBody');
+            if (color === 'green') bodySvg.setAttribute('fill', '#3E6B27');
+            else if (color === 'purple') bodySvg.setAttribute('fill', '#6B21A8');
+            else if (color === 'yellow') bodySvg.setAttribute('fill', '#D97706');
+
+            // 2. Eyes update
+            const eyesGroup = document.getElementById('svgEyes');
+            if (eyes === 'big') {
+                eyesGroup.innerHTML = `
+                    <circle cx="70" cy="100" r="18" fill="#FACC15" stroke="#2C3531" stroke-width="4"/>
+                    <circle cx="70" cy="100" r="7" fill="#2C3531"/>
+                    <circle cx="130" cy="100" r="18" fill="#FACC15" stroke="#2C3531" stroke-width="4"/>
+                    <circle cx="130" cy="100" r="7" fill="#2C3531"/>
+                `;
+            } else if (eyes === 'sleepy') {
+                eyesGroup.innerHTML = `
+                    <path d="M 52 100 Q 70 115 88 100" fill="none" stroke="#2C3531" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M 112 100 Q 130 115 148 100" fill="none" stroke="#2C3531" stroke-width="5" stroke-linecap="round"/>
+                `;
+            } else if (eyes === 'star') {
+                eyesGroup.innerHTML = `
+                    <polygon points="70,85 75,95 85,95 77,102 80,112 70,105 60,112 63,102 55,95 65,95" fill="#FACC15" stroke="#2C3531" stroke-width="2"/>
+                    <polygon points="130,85 135,95 145,95 137,102 140,112 130,105 120,112 123,102 115,95 125,95" fill="#FACC15" stroke="#2C3531" stroke-width="2"/>
+                `;
+            }
+
+            // 3. Horns update
+            const hornsGroup = document.getElementById('svgHorns');
+            if (horns === 'long') {
+                hornsGroup.innerHTML = `
+                    <path d="M 45 75 Q 20 25 10 20 Q 30 45 55 68 Z" fill="#F59E0B" stroke="#2C3531" stroke-width="4"/>
+                    <path d="M 155 75 Q 180 25 190 20 Q 170 45 145 68 Z" fill="#F59E0B" stroke="#2C3531" stroke-width="4"/>
+                `;
+            } else if (horns === 'curly') {
+                hornsGroup.innerHTML = `
+                    <path d="M 50 70 Q 20 40 30 20 Q 55 30 55 60 Z" fill="#C2410C" stroke="#2C3531" stroke-width="4"/>
+                    <path d="M 150 70 Q 180 40 170 20 Q 145 30 145 60 Z" fill="#C2410C" stroke="#2C3531" stroke-width="4"/>
+                `;
+            } else if (horns === 'crown') {
+                hornsGroup.innerHTML = `
+                    <polygon points="60,70 70,35 85,55 100,25 115,55 130,35 140,70" fill="#FACC15" stroke="#2C3531" stroke-width="4"/>
+                `;
+            }
+        }
+
+        function updateMonsterName() {
+            const inputVal = document.getElementById('monsterNameInput').value.trim();
+            document.getElementById('displayName').innerText = inputVal !== "" ? inputVal : "My Wild Thing";
+        }
+
+        function finishMonster() {
+            playSound('roar');
+            const container = document.getElementById('monsterContainer');
+            container.classList.add('roaring-monster');
+            setTimeout(() => {
+                container.classList.remove('roaring-monster');
+            }, 1600);
+        }
+
+        function checkFeelings() {
+            const q1 = document.getElementById('q1').value;
+            const q2 = document.getElementById('q2').value;
+            const q3 = document.getElementById('q3').value;
+            const q4 = document.getElementById('q4').value;
+            const q5 = document.getElementById('q5').value;
+            const q6 = document.getElementById('q6').value;
+            const q7 = document.getElementById('q7').value;
+            const feedback = document.getElementById('feelingsFeedback');
+
+            feedback.classList.remove('hidden', 'bg-green-100', 'border-green-500', 'text-green-800', 'bg-red-100', 'border-red-500', 'text-red-800');
+
+            if (q1 === 'happy' && q2 === 'angry' && q3 === 'sleepy' && q4 === 'sad' && q5 === 'scared' && q6 === 'hungry' && q7 === 'proud') {
+                playSound('success');
+                feedback.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                feedback.innerHTML = "🌟 Excellent! You matched all 7 feelings correctly! Great job!";
+            } else {
+                feedback.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                feedback.innerHTML = "❌ Some answers are not quite right. Look at the emojis and try again!";
+            }
+        }
+
+        function feedMonsters() {
+            const countSelected = document.querySelector('input[name="count"]:checked')?.value;
+            const foodChecked = document.querySelectorAll('input[name="food"]:checked').length;
+            const feedback = document.getElementById('feedFeedback');
+            const hungerBar = document.getElementById('hungerBar');
+            const hungerText = document.getElementById('hungerText');
+
+            feedback.classList.remove('hidden', 'bg-green-100', 'border-green-500', 'text-green-800', 'bg-red-100', 'border-red-500', 'text-red-800');
+
+            if (countSelected === '3') {
+                playSound('success');
+                if (foodChecked > 0) {
+                    hungerBar.style.width = '15%';
+                    hungerBar.className = "bg-green-500 h-full transition-all duration-500";
+                    hungerText.innerText = "Full & Happy! 😊";
+                    feedback.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = "🎉 Correct! There are 3 monsters and they loved their snacks!";
+                } else {
+                    hungerBar.style.width = '50%';
+                    hungerBar.className = "bg-amber-500 h-full transition-all duration-500";
+                    hungerText.innerText = "Still a bit hungry...";
+                    feedback.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
+                    feedback.innerHTML = "👍 Correct count (3)! Don't forget to select snacks for them to eat!";
+                }
+            } else {
+                feedback.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                feedback.innerHTML = "❌ Try counting the monsters again! (Hint: Count 👹 in the box above)";
+            }
+        }
+    </script>
 </body>
 </html>
