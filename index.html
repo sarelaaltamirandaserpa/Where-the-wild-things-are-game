@@ -321,13 +321,37 @@
             text-align: center;
         }
 
+        /* Clear, easy-to-count SVG monsters */
         .monster-row {
             display: flex;
             justify-content: center;
-            gap: 16px;
-            margin: 16px 0;
-            font-size: 2.8rem;
+            gap: 20px;
+            margin: 20px 0;
             flex-wrap: wrap;
+        }
+
+        .count-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #FAF6EF;
+            border: 2px solid var(--warm-brown);
+            border-radius: 16px;
+            padding: 10px 14px;
+        }
+
+        .count-badge {
+            background: var(--accent-gold);
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
         }
 
         .food-options {
@@ -482,7 +506,6 @@
         </div>
 
         <div id="feelingsQuiz">
-            <!-- 7 Extended Questions -->
             <div class="question-card">
                 <span class="question-text">1. Max dances during the Wild Rumpus! He feels...</span>
                 <select class="select-feeling" id="q1">
@@ -573,8 +596,44 @@
         <p>The monsters are hungry! Count them and select healthy treats to feed them.</p>
 
         <div class="feed-container">
+            <!-- Clear Monster Cards with Numbers for Easy Counting -->
             <div class="monster-row">
-                <span>👹</span><span>👾</span><span>👺</span><span>🐺</span>
+                <div class="count-card">
+                    <div class="count-badge">1</div>
+                    <svg width="50" height="50" viewBox="0 0 100 100">
+                        <rect x="15" y="20" width="70" height="70" rx="20" fill="#2D6A4F" stroke="#4A3B32" stroke-width="4"/>
+                        <circle cx="38" cy="45" r="10" fill="white"/><circle cx="38" cy="45" r="4" fill="#4A3B32"/>
+                        <circle cx="62" cy="45" r="10" fill="white"/><circle cx="62" cy="45" r="4" fill="#4A3B32"/>
+                        <path d="M 35,70 Q 50,82 65,70 Z" fill="#4A3B32"/>
+                    </svg>
+                </div>
+                <div class="count-card">
+                    <div class="count-badge">2</div>
+                    <svg width="50" height="50" viewBox="0 0 100 100">
+                        <rect x="15" y="20" width="70" height="70" rx="20" fill="#7B2CBF" stroke="#4A3B32" stroke-width="4"/>
+                        <circle cx="38" cy="45" r="10" fill="white"/><circle cx="38" cy="45" r="4" fill="#4A3B32"/>
+                        <circle cx="62" cy="45" r="10" fill="white"/><circle cx="62" cy="45" r="4" fill="#4A3B32"/>
+                        <path d="M 35,70 Q 50,82 65,70 Z" fill="#4A3B32"/>
+                    </svg>
+                </div>
+                <div class="count-card">
+                    <div class="count-badge">3</div>
+                    <svg width="50" height="50" viewBox="0 0 100 100">
+                        <rect x="15" y="20" width="70" height="70" rx="20" fill="#D97706" stroke="#4A3B32" stroke-width="4"/>
+                        <circle cx="38" cy="45" r="10" fill="white"/><circle cx="38" cy="45" r="4" fill="#4A3B32"/>
+                        <circle cx="62" cy="45" r="10" fill="white"/><circle cx="62" cy="45" r="4" fill="#4A3B32"/>
+                        <path d="M 35,70 Q 50,82 65,70 Z" fill="#4A3B32"/>
+                    </svg>
+                </div>
+                <div class="count-card">
+                    <div class="count-badge">4</div>
+                    <svg width="50" height="50" viewBox="0 0 100 100">
+                        <rect x="15" y="20" width="70" height="70" rx="20" fill="#E65100" stroke="#4A3B32" stroke-width="4"/>
+                        <circle cx="38" cy="45" r="10" fill="white"/><circle cx="38" cy="45" r="4" fill="#4A3B32"/>
+                        <circle cx="62" cy="45" r="10" fill="white"/><circle cx="62" cy="45" r="4" fill="#4A3B32"/>
+                        <path d="M 35,70 Q 50,82 65,70 Z" fill="#4A3B32"/>
+                    </svg>
+                </div>
             </div>
 
             <p style="font-weight:700; margin-bottom:10px;">How many monsters are there?</p>
@@ -694,24 +753,25 @@
         const horns = document.querySelector('input[name="horns"]:checked').value;
         const color = document.querySelector('input[name="color"]:checked').value;
 
-        // Render Headgear
+        // Render Perfectly Centered Headgear
         let headgearSvg = '';
         if (horns === 'long') {
             headgearSvg = `
-                <path d="M 40,60 Q 20,20 10,10 Q 30,30 50,55" fill="#E6C280" stroke="#4A3B32" stroke-width="3"/>
-                <path d="M 120,60 Q 140,20 150,10 Q 130,30 110,55" fill="#E6C280" stroke="#4A3B32" stroke-width="3"/>
+                <path d="M 45,55 Q 25,15 15,5 Q 35,25 55,50" fill="#E6C280" stroke="#4A3B32" stroke-width="3"/>
+                <path d="M 115,55 Q 135,15 145,5 Q 125,25 105,50" fill="#E6C280" stroke="#4A3B32" stroke-width="3"/>
             `;
         } else if (horns === 'curly') {
             headgearSvg = `
-                <path d="M 45,60 C 20,40 10,20 30,10 C 45,20 35,40 52,52" fill="#D97706" stroke="#4A3B32" stroke-width="3"/>
-                <path d="M 115,60 C 140,40 150,20 130,10 C 115,20 125,40 108,52" fill="#D97706" stroke="#4A3B32" stroke-width="3"/>
+                <path d="M 50,55 C 25,35 15,15 35,5 C 50,15 40,35 55,48" fill="#D97706" stroke="#4A3B32" stroke-width="3"/>
+                <path d="M 110,55 C 135,35 145,15 125,5 C 110,15 120,35 105,48" fill="#D97706" stroke="#4A3B32" stroke-width="3"/>
             `;
         } else if (horns === 'crown') {
+            // Perfectly Centered Golden Crown
             headgearSvg = `
-                <polygon points="45,55 55,20 80,40 100,10 120,40 145,20 155,55" fill="#F59E0B" stroke="#4A3B32" stroke-width="3"/>
-                <circle cx="55" cy="20" r="4" fill="#EF4444"/>
-                <circle cx="100" cy="10" r="5" fill="#3B82F6"/>
-                <circle cx="145" cy="20" r="4" fill="#EF4444"/>
+                <polygon points="38,50 48,15 68,35 80,10 92,35 112,15 122,50" fill="#F59E0B" stroke="#4A3B32" stroke-width="3"/>
+                <circle cx="48" cy="15" r="4" fill="#EF4444"/>
+                <circle cx="80" cy="10" r="5" fill="#3B82F6"/>
+                <circle cx="112" cy="15" r="4" fill="#EF4444"/>
             `;
         }
 
@@ -719,20 +779,20 @@
         let eyesSvg = '';
         if (eyes === 'big') {
             eyesSvg = `
-                <circle cx="65" cy="85" r="16" fill="white" stroke="#4A3B32" stroke-width="3"/>
-                <circle cx="65" cy="85" r="7" fill="#4A3B32"/>
-                <circle cx="95" cy="85" r="16" fill="white" stroke="#4A3B32" stroke-width="3"/>
-                <circle cx="95" cy="85" r="7" fill="#4A3B32"/>
+                <circle cx="60" cy="85" r="14" fill="white" stroke="#4A3B32" stroke-width="3"/>
+                <circle cx="60" cy="85" r="6" fill="#4A3B32"/>
+                <circle cx="100" cy="85" r="14" fill="white" stroke="#4A3B32" stroke-width="3"/>
+                <circle cx="100" cy="85" r="6" fill="#4A3B32"/>
             `;
         } else if (eyes === 'sleepy') {
             eyesSvg = `
-                <path d="M 50,85 Q 65,100 80,85" fill="none" stroke="#4A3B32" stroke-width="4" stroke-linecap="round"/>
-                <path d="M 80,85 Q 95,100 110,85" fill="none" stroke="#4A3B32" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 48,85 Q 60,98 72,85" fill="none" stroke="#4A3B32" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 88,85 Q 100,98 112,85" fill="none" stroke="#4A3B32" stroke-width="4" stroke-linecap="round"/>
             `;
         } else if (eyes === 'star') {
             eyesSvg = `
-                <text x="52" y="95" font-size="24">⭐</text>
-                <text x="82" y="95" font-size="24">⭐</text>
+                <text x="48" y="93" font-size="22">⭐</text>
+                <text x="88" y="93" font-size="22">⭐</text>
             `;
         }
 
@@ -741,16 +801,16 @@
                 <!-- Headgear -->
                 ${headgearSvg}
 
-                <!-- Body / Head -->
-                <rect x="35" y="50" width="90" height="90" rx="30" fill="${color}" stroke="#4A3B32" stroke-width="4"/>
+                <!-- Body / Head (Centered) -->
+                <rect x="35" y="45" width="90" height="90" rx="28" fill="${color}" stroke="#4A3B32" stroke-width="4"/>
 
                 <!-- Eyes -->
                 ${eyesSvg}
 
                 <!-- Mouth with Sharp Teeth -->
-                <path d="M 55,115 Q 80,135 105,115 Z" fill="#4A3B32"/>
-                <polygon points="62,115 67,123 72,115" fill="white"/>
-                <polygon points="88,115 93,123 98,115" fill="white"/>
+                <path d="M 55,112 Q 80,132 105,112 Z" fill="#4A3B32"/>
+                <polygon points="62,112 67,120 72,112" fill="white"/>
+                <polygon points="88,112 93,120 98,112" fill="white"/>
             </svg>
         `;
 
